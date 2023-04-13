@@ -1,0 +1,27 @@
+{
+    "name": "Weekly Task Wizard",
+    "version": "1.0",
+    "description": "Jira weekly report generator for Slack",
+    "author": "agerard57",
+    "manifest_version": 3,
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    "permissions": [
+        "activeTab",
+        "clipboardWrite",
+        "scripting",
+        "storage",
+        "tabs"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "assets/icon16.png",
+            "48": "assets/icon48.png",
+            "128": "assets/icon128.png"
+        },
+        "default_popup": "popup.html"
+    }
+}

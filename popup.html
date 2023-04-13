@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeeklyTaskWizard</title>
+    <script src="scripts/popup.js"></script>
+    <link rel="stylesheet" href="styles/popup.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>WeeklyTaskWizard</h1>
+      <p id="sub">Jira weekly report generator for Slack</p>
+    </header>
+
+    <section id="choices">
+      <label for="task-type">Task Type:</label>
+      <select id="task-type">
+        <option value="Tâches">Tâches</option>
+        <option value="Review MR">Review MR</option>
+        <option value="Autre">Autre</option>
+      </select>
+    </section>
+
+    <section id="buttons">
+      <button id="add-task">Add Current Page</button>
+      <button id="clear-tasks">Clear Tasks</button>
+    </section>
+
+    <section>
+      <div class="task-preview hidden">
+        <h2 class="task-preview-title"></h2>
+        <p class="task-preview-list"></p>
+      </div>
+      <div id="message-preview"></div>
+      <div class="error-message hidden"></div>
+    </section>
+
+    <section>
+      <h2 class="task-preview-title">Raw:</h2>
+      <textarea id="message-output" rows="6" cols="40"></textarea>
+      <button id="copy-message">Copy</button>
+    </section>
+  </body>
+</html>
