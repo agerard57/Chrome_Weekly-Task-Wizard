@@ -1,5 +1,7 @@
 # WeeklyTaskWizard
 
+![image](https://user-images.githubusercontent.com/56207146/231904931-819fceda-9999-4997-864f-ebce1188f759.png)
+
 ## Overview
 
 This is a Chrome extension that generates a Slack message containing a report of Jira tasks. You can add tasks to different categories, view a preview of the tasks, and copy the raw text to your clipboard.
