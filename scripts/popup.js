@@ -132,8 +132,15 @@ const addCurrentPage = () => {
         const match = pageUrl.match(jiraUrlRegex);
 
         if (!match) {
-            const messageOutput = document.getElementById("message-output");
-            messageOutput.value = "Error: Current page is not a Jira issue";
+            const errorMessage = document.querySelector(".error-message");  
+            errorMessage.classList.remove("hidden");
+            errorMessage.innerHTML = "Error: Current page is not a Jira issue.";
+
+            setTimeout(() => {
+                errorMessage.classList.add("hidden");
+                errorMessage.innerHTML = "";
+            }, 3000);
+
             return;
         }
 

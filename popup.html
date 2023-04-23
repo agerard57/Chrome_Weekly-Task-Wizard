@@ -14,6 +14,11 @@
       <p id="sub">Jira weekly report generator for Slack</p>
     </header>
 
+    <div id="content">
+      <section id="error">
+        <div class="error-message hidden"></div>
+      </section>
+
     <section id="choices">
       <label for="task-type">Task Type:</label>
       <select id="task-type">
@@ -34,7 +39,6 @@
         <p class="task-preview-list"></p>
       </div>
       <div id="message-preview"></div>
-      <div class="error-message hidden"></div>
     </section>
 
     <section>
@@ -42,5 +46,6 @@
       <textarea id="message-output" rows="6" cols="40"></textarea>
       <button id="copy-message">Copy</button>
     </section>
+    </div>
   </body>
 </html>
