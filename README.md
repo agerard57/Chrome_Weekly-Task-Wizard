@@ -16,10 +16,11 @@ This is a Chrome extension that generates a Slack message containing a report of
 1. Install the Chrome extension by navigating to chrome://extensions and dragging the "popup" folder onto the page.
 2. Navigate to a Jira issue page.
 3. Click the "Add Current Page" button to add the issue to the appropriate category.
-4. Choose the appropriate category from the dropdown menu to preview the tasks.
-5. Click the "Copy" button to copy the raw text to your clipboard.
-6. Paste your Slack message into the appropriate channel.
-7. Click the "Clear Tasks" button to clear all tasks.
+4. You can also add custom tasks by clicking the "Add Custom Task" button.
+5. Choose the appropriate category from the dropdown menu to preview the tasks.
+6. Click the "Copy" button to copy the raw text to your clipboard.
+7. Paste your Slack message into the appropriate channel.
+8. Click the "Clear Tasks" button to clear all tasks.
 
 > :warning: **Links in Slack**: In order for the Jira issue links to properly work, make sure that your Slack workspace is in Markdown mode. To switch to Markdown mode, go to your workspace preferences, navigate to "Advanced" > "Input options" , and select "Format messages with markup".
 

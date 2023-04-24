@@ -6,7 +6,7 @@ const checkJiraPage = (callback) => {
         currentWindow: true
     }, (tabs) => {
         const pageUrl = tabs[0].url;
-        const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/browse\/(\w+-\d+)/;
+        const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/(?:(?:jira\/)?(?:browse\/)?|(?:jira\/)?(?:software\/c\/projects\/\w+\/boards\/\d+\?modal=detail&selectedIssue=)?)(\w+-\d+)/;
         const match = pageUrl.match(jiraUrlRegex);
         callback(match);
     });
@@ -61,8 +61,8 @@ const copyMessage = () => {
         copyButton.textContent = "Copy";
     }, 1000);
 }
-const generateMessagePreview = () => {
 
+const generateMessagePreview = () => {
     const messagePreview = document.getElementById("message-preview");
     messagePreview.innerHTML = "";
 
