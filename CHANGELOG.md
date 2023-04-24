@@ -2,6 +2,8 @@
 
 ## Version 1.1
 
+![image](https://user-images.githubusercontent.com/56207146/233877289-b976d271-de47-4e8c-9d6f-cecc7cd8d97a.png)
+
 ### Added
 
 - New custom input option
