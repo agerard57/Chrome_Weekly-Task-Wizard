@@ -19,33 +19,51 @@
         <div class="error-message hidden"></div>
       </section>
 
-    <section id="choices">
-      <label for="task-type">Task Type:</label>
-      <select id="task-type">
-        <option value="Tâches">Tâches</option>
-        <option value="Review MR">Review MR</option>
-        <option value="Autre">Autre</option>
-      </select>
-    </section>
+      <section id="choices">
+        <button id="clear-tasks">Clear Tasks</button>
+        <h3>Task type:</h3>
+        <select id="task-type">
+          <option value="Tâches">Tâches</option>
+          <option value="Review MR">Review MR</option>
+          <option value="Autre">Autre</option>
+        </select>
+        <div id="choice-container">
+          <div id="jira-task">
+            <h3>Current page:</h3>
+            <p class="task-preview-title"></p>
+            <button id="add-task">Add Current Page</button>
+          </div>
+          <div id="separator"></div>
+          <div id="custom-task">
+            <h3>Custom Task:</h3>
+            <div class="input">
+              <label for="custom-task-name">Custom name:</label>
+              <input id="custom-task-name" type="text" />
+            </div>
+            <br />
+            <div class="input">
+              <label for="custom-task-link">Optional link:</label>
+              <input id="custom-task-link" type="text" />
+            </div>
+            <br />
+            <button id="add-custom-task">Add Custom Task</button>
+          </div>
+        </div>
+      </section>
 
-    <section id="buttons">
-      <button id="add-task">Add Current Page</button>
-      <button id="clear-tasks">Clear Tasks</button>
-    </section>
+      <section>
+        <div class="task-preview hidden">
+          <h2 class="task-preview-title"></h2>
+          <p class="task-preview-list"></p>
+        </div>
+        <div id="message-preview"></div>
+      </section>
 
-    <section>
-      <div class="task-preview hidden">
-        <h2 class="task-preview-title"></h2>
-        <p class="task-preview-list"></p>
-      </div>
-      <div id="message-preview"></div>
-    </section>
-
-    <section>
-      <h2 class="task-preview-title">Raw:</h2>
-      <textarea id="message-output" rows="6" cols="40"></textarea>
-      <button id="copy-message">Copy</button>
-    </section>
+      <section>
+        <h2 class="task-preview-title">Raw:</h2>
+        <textarea id="message-output" rows="6" cols="40"></textarea>
+        <button id="copy-message">Copy</button>
+      </section>
     </div>
   </body>
 </html>

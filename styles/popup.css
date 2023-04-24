@@ -28,6 +28,30 @@ h1 {
   padding-top: 110px;
 }
 
+#choice-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#jira-task,
+#custom-task {
+  margin: 10px;
+  text-align: left;
+}
+
+#separator {
+  width: 1px;
+  height: 120px;
+  background-color: #ccc;
+  margin: 0 10px;
+  align-self: center;
+}
+
+#clear-tasks {
+  width: 100%;
+}
+
 section {
   margin: 10px 20px 0 20px;
 }
@@ -49,6 +73,11 @@ button {
 
 button:hover {
   background-color: #7a2f8a;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 textarea {
