@@ -24,6 +24,15 @@ This is a Chrome extension that generates a Slack message containing a report of
 
 > :warning: **Links in Slack**: In order for the Jira issue links to properly work, make sure that your Slack workspace is in Markdown mode. To switch to Markdown mode, go to your workspace preferences, navigate to "Advanced" > "Input options" , and select "Format messages with markup".
 
+## Changelog
+
+A changelog is available [here](https://github.com/agerard57/Chrome_Weekly-Task-Wizard/blob/master/CHANGELOG.md).
+
+## Next features
+
+- Refactor code / split into multiple files
+- Add the ability to add a task from a modal
+
 ## Code
 
 The code for this extension is available on [GitHub](https://github.com/agerard57/Chrome_Weekly-Task-Wizard).
