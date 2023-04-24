@@ -6,7 +6,9 @@ const checkJiraPage = (callback) => {
         currentWindow: true
     }, (tabs) => {
         const pageUrl = tabs[0].url;
-        const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/(?:(?:jira\/)?(?:browse\/)?|(?:jira\/)?(?:software\/c\/projects\/\w+\/boards\/\d+\?modal=detail&selectedIssue=)?)(\w+-\d+)/;
+        const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/browse\/(\w+-\d+)/;
+        // TODO: Add support for Jira Modal
+        // const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/(?:(?:jira\/)?(?:browse\/)?|(?:jira\/)?(?:software\/c\/projects\/\w+\/boards\/\d+\?modal=detail&selectedIssue=)?)(\w+-\d+)/;
         const match = pageUrl.match(jiraUrlRegex);
         callback(match);
     });
