@@ -33,7 +33,10 @@ A changelog is available [here](https://github.com/agerard57/Chrome_Weekly-Task-
 ## Next features
 
 - Refactor code / split into multiple files
-- Add the ability to add a task from a modal
+- Add notes tab
+- Add Validation type
+- Add Share among computers feature
+- Add the possibility to add from the "selected issue" view
 
 ## Code
 
