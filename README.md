@@ -8,7 +8,7 @@ This is a Chrome extension that generates a Slack message containing a report of
 
 ## Features
 
-- Add tasks to different categories (Tâches, Review MR, Autre)
+- Add tasks to different categories (Tâches, Review MR, Validation, Autre)
 - View a preview of the tasks with links to Jira issues
 - Copy the raw text to your clipboard
 - Clear all tasks with a single click
