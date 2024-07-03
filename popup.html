@@ -13,21 +13,15 @@
       <h1>WeeklyTaskWizard</h1>
       <p id="sub">Jira weekly report generator for Slack</p>
     </header>
-
+    
     <div id="content">
       <section id="error">
         <div class="error-message hidden"></div>
       </section>
-
+      
       <section id="choices">
+        <button id="add-date-range">Add Date Range</button>
         <button id="clear-tasks">Clear Tasks</button>
-        <h3>Task type:</h3>
-        <select id="task-type">
-          <option value="Tâches">Tâches</option>
-          <option value="Review MR">Review MR</option>
-          <option value="Validation">Validation</option>
-          <option value="Autre">Autre</option>
-        </select>
         <div id="choice-container">
           <div id="jira-task">
             <h3>Current page:</h3>
@@ -58,12 +52,12 @@
           <p class="task-preview-list"></p>
         </div>
         <div id="message-preview"></div>
+        <button id="copy-message">Copy</button>
       </section>
 
       <section>
         <h2 class="task-preview-title">Raw:</h2>
         <textarea id="message-output" rows="6" cols="40"></textarea>
-        <button id="copy-message">Copy</button>
       </section>
     </div>
   </body>

@@ -7,9 +7,13 @@ const checkJiraPage = (callback) => {
     }, (tabs) => {
         const pageUrl = tabs[0].url;
         const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/browse\/(\w+-\d+)/;
-        // TODO: Add support for Jira Modal
-        // const jiraUrlRegex = /https?:\/\/[^/]*\.atlassian\.net\/(?:(?:jira\/)?(?:browse\/)?|(?:jira\/)?(?:software\/c\/projects\/\w+\/boards\/\d+\?modal=detail&selectedIssue=)?)(\w+-\d+)/;
-        const match = pageUrl.match(jiraUrlRegex);
+        const selectedIssueRegex = /[?&]selectedIssue=(\w+-\d+)/;
+
+        let match = pageUrl.match(jiraUrlRegex);
+        if (!match) {
+            match = pageUrl.match(selectedIssueRegex);
+        }
+
         callback(match);
     });
 }
@@ -48,9 +52,12 @@ const displayErrorMessage = (message) => {
 
 const formattedDate = () => {
     const date = new Date();
-    const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
-    return `Semaine du ${formattedDate}`;
+    const thisMonday = new Date(date.setDate(date.getDate() - date.getDay() + 1));
+    const currentDay = `${thisMonday.getDate().toString().padStart(2, '0')}-${(thisMonday.getMonth() + 1).toString().padStart(2, '0')}-${thisMonday.getFullYear()}`;
+
+    return `Semaine du ${currentDay}`;
 }
+
 const copyMessage = () => {
 
     const messageOutput = document.getElementById("message-output");
@@ -83,10 +90,6 @@ const generateMessagePreview = () => {
             const tasks = taskLists[taskType];
 
             if (tasks.length > 0) {
-                const categoryItem = document.createElement("h4");
-                categoryItem.textContent = taskType + ":";
-                previewList.appendChild(categoryItem);
-
                 tasks.forEach((task) => {
                     const issueKey = task.taskNumber;
                     const title = task.taskName;
@@ -153,8 +156,6 @@ const generateRawOutput = () => {
             const tasks = taskLists[taskType];
 
             if (tasks.length > 0) {
-                message += `*${taskType}:*\n`;
-
                 for (let task of tasks) {
                     const issueKey = task.taskNumber;
                     const title = task.taskName;
@@ -189,7 +190,8 @@ const addCurrentPage = () => {
 
         const pageUrl = match.input;
         const issueKey = match[1];
-        const baseUrl = pageUrl.substring(0, pageUrl.indexOf('/browse'));
+
+        const baseUrl = pageUrl.substring(0, pageUrl.indexOf('/browse') !== -1 ? pageUrl.indexOf('/browse') : pageUrl.indexOf('/jira'));
 
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             const activeTab = tabs[0];
@@ -200,7 +202,7 @@ const addCurrentPage = () => {
                 }
             }, (result) => {
                 const title = result[0].result || "";
-                const taskType = document.getElementById("task-type").value;
+                const taskType = "task";
 
                 if (!taskLists.hasOwnProperty(taskType)) {
                     taskLists[taskType] = [];
@@ -252,7 +254,7 @@ const addCustomTask = () => {
         }
     }
 
-    const taskType = document.getElementById("task-type").value;
+    const taskType = "task";
 
     if (!taskLists.hasOwnProperty(taskType)) {
         taskLists[taskType] = [];
@@ -281,6 +283,22 @@ const addCustomTask = () => {
     }
 }
 
+const addDateRange = () => {
+    const date = "&start=2022-12-01&end=2022-12-31";
+
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const currentUrl = tabs[0].url;
+        const url = new URL(currentUrl);
+
+        if (url.search) {
+            url.search += date;
+        } else {
+            url.search = `?${date}`;
+        }
+
+        chrome.tabs.update(tabs[0].id, { url: url.toString() });
+    });
+}
 
 const updateAll = () => {
     updateMessagePreview();
@@ -306,10 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("add-custom-task").addEventListener("click", addCustomTask);
     document.getElementById("clear-tasks").addEventListener("click", clearTasks);
     document.getElementById("copy-message").addEventListener("click", copyMessage);
-    document.getElementById("task-type").addEventListener("change", () => {
-
-        updateMessagePreview();
-    });
+    document.getElementById("add-date-range").addEventListener("click", addDateRange); // Add this line
 
     updateMessagePreview();
     updateRawOutput();

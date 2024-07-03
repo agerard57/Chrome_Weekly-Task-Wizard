@@ -51,6 +51,11 @@ h1 {
   width: 100%;
 }
 
+#add-date-range {
+  width: 100%;
+  background-color:grey;
+}
+
 section {
   margin: 10px 20px 0 20px;
 }

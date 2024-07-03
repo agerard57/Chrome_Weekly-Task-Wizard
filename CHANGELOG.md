@@ -1,5 +1,23 @@
 # Changelog
 
+## Version 1.3
+
+### Added
+
+- Add time range button
+
+### Moved
+
+- Move copy button
+
+### Deleted
+
+- Task types
+
+### Fixed
+
+- The week always points to Monday
+
 ## Version 1.2
 
 ### Added
